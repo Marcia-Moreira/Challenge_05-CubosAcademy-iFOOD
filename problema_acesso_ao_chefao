@@ -1,0 +1,237 @@
+// Problema 05: Acesso ao chefão
+
+// Acesso ao chefão
+// Difícil
+
+// Problema
+// Como desenvolvedor sênior da Cubos Game, empresa da Cubos Academy destinada a fazer jogos eletrônicos para computadores, você ficou responsável por implementar a lógica que mostre ao jogador do "Enfrentando Bugs", novo jogo da empresa, se ele pode ou não entrar na sala do chefão da fase em que ele se encontra no jogo.
+
+// Para ter o direito de enfrentar o chefão, o jogador deve ter coletado três itens específicos ao longo da fase, que variam de chefão para chefão.
+
+// Entrada
+// A entrada do seu programa será composta por quatro variáveis:
+
+// itensColetados: array de strings em que cada posição indica um item coletado ao longo da fase;
+// itemNecessario1: uma string que indica o primeiro item necessário para enfrentar o chefão;
+// itemNecessario2: uma string que indica o segundo item necessário para enfrentar o chefão;
+// itemNecessario3: uma string que indica o terceiro item necessário para enfrentar o chefão.
+// Saída
+// Você deve retornar:
+
+// PODE ENFRENTAR: caso o jogador tenha os três itens necessários para enfrentar o chefão;
+// NAO PODE ENFRENTAR: caso o jogador não tenha os três itens necessários para enfrentar o chefão.
+// Exemplo
+// Entrada
+// itensColetados = ["capa", "arco", "flecha", "machado", "escudo", "comida", "sapato", "capacete"]
+
+// itemNecessario1 = "machado"
+
+// itemNecessario2 = "espada"
+
+// itemNecessario3 = "sapato"
+
+// Saída
+// NAO PODE ENFRENTAR
+
+// Explicação
+// Apesar do jogador ter conseguido coletar dois dois itens necessários, o machado e o sapato, ele não conseguiu obter a espada.
+
+// Veja os três principais erros que você pode está cometendo ao passar seu código para a nossa plataforma:
+// Você está esquecendo de trocar o console.log pelo return;
+// Você não está retornando o que é pedido. Lembre-se que a mensagem a ser retornada tem que ser exatamente a solicitada no exercício, sem espaços em branco a mais e com as letras maiúsculas. Se a questão estiver pedindo, por exemplo, para retornar um número, não retorne nenhuma mensagem antes, retorne APENAS o número;
+// Você está atribuindo valores às variáveis de entrada.
+// Para maiores informações, veja a PARTE PRÁTICA DO MINICURSO.
+
+// CASO VOCÊ TENHA DELETADO A FUNÇÃO "solucao", COLE O CÓDIGO ABAIXO:
+// function solucao(itensColetados, itemNecessario1, itemNecessario2, itemNecessario3) {
+
+//       // seu codigo aqui
+
+// }
+
+//function solucao(itensColetados, itemNecessario1, itemNecessario2, itemNecessario3) {
+    // seu codigo aqui
+
+//}
+
+////////////////////////////////////////////////////////////////////
+
+//01 - LÓGICA-PASSO A PASSO NO PAPEL - O QUE PRECISAMOS FAZER?
+
+//JOGO - "ENFRENTANDO BUGS"
+
+//Ele pode ou não entrar na sala do chefão?
+//Para entrar precisa pegar 3 itens específicos:
+//Entrada: 04 variáveis
+// let itensColetados = [faca, pá]  //array de strings
+// let itemNecessario1 = ?  //variável string não definida
+// let itemNecessario2 = ?  //variável string não definida
+// let itemNecessario3 = ?  //variável string não definida
+// Saída: Retornar se:
+//  PODE ENFRENTAR - Se tiver os 3 itens necessários
+//  NAO PODE ENFRENTAR - Se faltar algum dos 3 ítens necessário
+
+// As listas não são determinadas, todas são variáveis dada pela plataforma
+// Penso em criar as let's com letras = a, b, c, d...
+// Como percorrer todos os itens do array itensColetados para comparar se tem todos os ítensNecessarios???
+// Criar uma let Contadora para armazenar todos os itensNecessarios
+// Verifico se o item da array é igual a let necessária
+// Se o resultado dessa let Contadora TIVER os 3 itens Necessários, imprime "Pode..."")
+// Se não tiver o resultado de 3 itens, deve imprimir, "Não Pode..."
+// Se itemNecessario1 for igual a algum item da array itensColetados -> imprime Pode
+// Se itemNecessario2 for igual a algum item da array itensColetados -> imprime Pode
+// Se itemNecessario3 for igual a algum item da array itensColetados -> imprime Pode
+// Caso contrário -> imprime "Não pode..."
+
+////////////////////////////////////////////////////////////////////
+
+// NO JAVA SCRIPT - TRADUÇÃO:
+
+//console.log("01-____________________________________________________")
+
+//Usando as palavras do exemplo da plataforma:
+// VIA EXPLICADA / DETALHADA:
+//OK
+//ARRAYS DE STRINGS PARA TESTES - PANORAMAS POSSÍVEIS:
+let itensColetados = ["capa", "arco", "flecha", "machado", "escudo", "comida", "sapato", "capacete"]; //Modelo do exercício com várias opções
+//OKlet itensColetados = ["capa","espada", "arco", "flecha", "machado", "escudo", "comida","espada", "sapato", "capacete"]; //Modelo com Muitas opções e Item Necessário2 Repetido
+//OKlet itensColetados = ["machado", "espada", "sapato"]; //Todos Obrigatórios
+//OKlet itensColetados = ["machado", "oculos"]; //Só dois ítens Obrigatórios
+//OKlet itensColetados = ["machado", "espada"]; // Só um item obrigatório e um não obrigatório
+//OKlet itensColetados = ["machado", "espada", "sapato", "corda"]; //Todos Obrigatórios em ordem + 1
+//ERROlet itensColetados = ["machado", "espada", "SAPATO", "corda"]; //Todos Obrigatórios em ordem + 1
+//OKlet itensColetados = ["machado", "corda", "espada", "escada", "sapato"]; //Obrigatórios e Extras
+//OKlet itensColetados = ["corda", "espada", "escada", "sapato"]; //Apenas dois Obrigatórios
+//OKlet itensColetados = ["espada", "escada", "sapato", "corda", "oculos"]; //Apenas dois Obrigatórios
+console.log("Itens Coletados:", itensColetados)
+//var array = ["palavra1", "palavra2", "palavra3", "palavra4"];
+
+console.log("02-____________________________________________________")
+//VARIÁVEIS DE STRINGS:
+let itemNecessario1 = "machado";
+console.log("Item Necessário 1:", itemNecessario1)
+//var palavra1 = "palavra1";
+
+let itemNecessario2 = "espada";
+console.log("Item Necessário 2:", itemNecessario2)
+//var palavra2 = "palavra2";
+
+let itemNecessario3 = "sapato";
+console.log("Item Necessário 3:", itemNecessario3)
+//var palavra3 = "palavra3";
+
+console.log("03-____________________________________________________")
+
+//RESOLUÇÃO DO CÓDIGO:
+//Obs.: Esse código está com falha se a array for escrita com Caixa Alta, porém não foi exigido no desafio esse reparo.
+
+//Variáveis Contadoras dos Ítens (um pra cada):
+let contadorItemNecessario1 = 0; 
+let contadorItemNecessario2 = 0;
+let contadorItemNecessario3 = 0;
+
+// Usando FOR e contador .length (para fazer correr a array):
+for (let item = 0; item < itensColetados.length; item++) {
+  let palavra = itensColetados[item];
+  
+  if (palavra === itemNecessario1) {
+    contadorItemNecessario1++;
+    console.log(contadorItemNecessario1) // Para mostrar a parcial do contador 1
+    
+  } else if (palavra === itemNecessario2) {
+    contadorItemNecessario2++;
+    console.log(contadorItemNecessario2) // Para mostrar a parcial do contador 2
+    
+  } else if (palavra === itemNecessario3) {
+    contadorItemNecessario3++;
+    console.log(contadorItemNecessario3) // Para mostrar a parcial do contador 3
+  }
+}
+
+//Para mostrar o total dos contadores:
+console.log("Contador Item Necessário 1: " + contadorItemNecessario1);
+console.log("Contador Item Necessário 2: " + contadorItemNecessario2);
+console.log("Contador Item Necessário 3: " + contadorItemNecessario3);
+
+//Criado Contador Geral para verificar se temos os 3 ítens obrigatórios:
+let contadorGeral = contadorItemNecessario1 + contadorItemNecessario2 + contadorItemNecessario3
+console.log("Contador Geral:", contadorGeral) // Para mostrar a parcial do contador geral
+
+//Se houver itens obrigatórios repetidos, o jogador pode enfrentar!
+if (contadorGeral >= 3) {
+  console.log("PODE ENFRENTAR")
+} else {
+  console.log("NAO PODE ENFRENTAR")
+}
+
+/////////////////////////////////////////////////////////////////////
+
+//VIA RESUMIDA:
+/*
+let itensColetados = ["capa", "arco", "flecha", "machado", "escudo", "comida", "sapato", "capacete"];
+
+let itemNecessario1 = "machado";
+let itemNecessario2 = "espada";
+let itemNecessario3 = "sapato";
+
+let contadorItemNecessario1 = 0; 
+let contadorItemNecessario2 = 0;
+let contadorItemNecessario3 = 0;
+
+for (let item = 0; item < itensColetados.length; item++) {
+  let itemEscrito = itensColetados[item];
+  
+  if (itemEscrito === itemNecessario1) {
+    contadorItemNecessario1++;
+  } else if (itemEscrito === itemNecessario2) {
+    contadorItemNecessario2++;
+  } else if (itemEscrito === itemNecessario3) {
+    contadorItemNecessario3++;
+  }
+}
+
+let contadorGeralItensNecessarios = contadorItemNecessario1 + contadorItemNecessario2 + contadorItemNecessario3
+
+if (contadorGeralItensNecessarios >= 3) {
+  console.log("PODE ENFRENTAR")
+} else {
+  console.log("NAO PODE ENFRENTAR")
+}
+*/
+/////////////////////////////////////////////////////////////////////
+/*
+//VIA PARA PLATAFORMA: 100% Acerto - OK 23/06/2023 17:24h
+
+//let itensColetados = ["capa", "arco", "flecha", "machado", "escudo", "comida", "sapato", "capacete"];
+
+//let itemNecessario1 = "machado";
+//let itemNecessario2 = "espada";
+//let itemNecessario3 = "sapato";
+
+//function solucao(itensColetados, itemNecessario1, itemNecessario2, itemNecessario3) {
+
+  let contadorItemNecessario1 = 0; 
+  let contadorItemNecessario2 = 0;
+  let contadorItemNecessario3 = 0;
+  
+  for (let item = 0; item < itensColetados.length; item++) {
+    let itemEscrito = itensColetados[item];
+    
+    if (itemEscrito === itemNecessario1) {
+      contadorItemNecessario1++;
+    } else if (itemEscrito === itemNecessario2) {
+      contadorItemNecessario2++;
+    } else if (itemEscrito === itemNecessario3) {
+      contadorItemNecessario3++;
+    }
+  }
+  
+  let contadorGeralItensNecessarios = contadorItemNecessario1 + contadorItemNecessario2 + contadorItemNecessario3
+  
+  if (contadorGeralItensNecessarios >= 3) {
+    return "PODE ENFRENTAR"
+  } else {
+    return "NAO PODE ENFRENTAR"
+  }
+//}
+*/
